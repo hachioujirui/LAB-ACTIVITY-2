@@ -1,26 +1,47 @@
-public class Main {
+public class Main 
+{
+    public static void printDetails(Vehicle vehicle) {
+        vehicle.displayInfo();
+        System.out.println("Age: " + vehicle.calculateAge());
+        System.out.println("Vintage: " + vehicle.isVintage());
+    }
 
     public static void main(String[] args) {
 
-        Vehicle vehicle1 = new Vehicle("Toyota", "Corolla", 2020);
-        Vehicle vehicle2 = new Vehicle("Ford", "Mustang", 1965);
-        Vehicle vehicle3 = new Vehicle("Honda", "Civic", 2015);
+        Vehicle vehicle = new Car("Volkswagen", "Type 82 Kübelwagen", 1940, 4);
+        vehicle.displayInfo();
 
-        System.out.println("Vehicle 1:");
-        vehicle1.displayInfo();
-        System.out.println("Age: " + vehicle1.calculateAge());
-        System.out.println("Vintage: " + vehicle1.isVintage());
         System.out.println();
 
-        System.out.println("Vehicle 2:");
-        vehicle2.displayInfo();
-        System.out.println("Age: " + vehicle2.calculateAge());
-        System.out.println("Vintage: " + vehicle2.isVintage());
+        vehicle = new Motorcycle("Zündapp", "KS 750", 1941, "Manual");
+        vehicle.displayInfo();
+
         System.out.println();
 
-        System.out.println("Vehicle 3:");
-        vehicle3.displayInfo();
-        System.out.println("Age: " + vehicle3.calculateAge());
-        System.out.println("Vintage: " + vehicle3.isVintage());
+        vehicle = new Truck("Sd.Kfz.", "Sonderkraftfahrzeug 234", 1945, 8);
+        vehicle.displayInfo();
+
+        Car car = new Car("GAZ", "69", 1953, 2);
+        Motorcycle motorcycle = new Motorcycle("Kalashnikov", "Izh-Enduro", 2025, "Automatic");
+        Truck truck = new Truck("Ural", "4320", 1977, 6);
+
+        printDetails(car);
+        System.out.println();
+
+        printDetails(motorcycle);
+        System.out.println();
+
+        printDetails(truck);
+
+        Vehicle[] vehicles = {
+            new Car("Volkswagen", "Type 82 Kübelwagen", 1940, 4),
+            new Motorcycle("Zündapp", "KS 750", 1941, "Manual"),
+            new Truck("Sd.Kfz.", "Sonderkraftfahrzeug 234", 1945, 8)
+        };
+
+        for (Vehicle currentVehicle : vehicles) {
+            printDetails(currentVehicle);
+            System.out.println();
+        }
     }
 }
